@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Crystal Game</title>
+
+  
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <h1>Crystal Match Game</h1>
+  <h2>This is how you play the game!</h2>
+  <ol>
+    <li>First when you refresh the page a random number is shown</li>
+    <li>Then each crystal will have a random value from 2 to 12</li>
+    <li>Try and match your score with computer score by selecting the crystals, each click will add that value to your
+        total score number</li>
+        <li>Your wins and losses will be set on the page also you can reset the game by refreshing the page</li>
+</ol>
+
+<h2>Number to get: <span id="numberToGet"></span></h2>
+
+<h2>wins: <span id="numberWins"></span></h2>
+
+<br>
+
+<h2>losses: <span id="numberLosses"></span></h2>
+
+
+<img src="images/crystal1.png" class= "crystalImage" id="one" alt="crystal1">
+		<img src="images/crystal2.png" class= "crystalImage" id="two" alt="crystal2">
+		<img src="images/crystal3.png" class= "crystalImage" id= "three" alt="crystal3">
+    <img src="images/crystal4.png" class= "crystalImage" id= "four" alt="crystal4">
+    
+    <h2>your score: <span id="yourScore"></span></h2>
+
+    <audio src="Kendrick Lamar - Rigamortis Instrumental.mp3" autoplay="autoplay" loop="loop"></audio>
+    
+    
+    <script type="text/javascript">
+    
+    $(document).ready(function(){
+var randomNumber = Math.floor(Math.random() * 120)
+
+$("#numberToGet").text(randomNumber);
+
+var num1 = Math.floor(Math.random()* 12 + 1)
+  var num2 = Math.floor(Math.random()* 12 + 1)
+  var num3 = Math.floor(Math.random()* 12 + 1)
+  var num4 = Math.floor(Math.random()* 12 + 1)
+
+  var userTotal= 0; 
+  var wins= 0;
+  var losses = 0;
+
+  $("#numberWins").text(wins);
+  $("#numberLosses").text(losses);
+
+
+function reset(){
+      randomNumber = Math.floor(Math.random() * 120);
+      
+      $("#numberToGet").text(randomNumber);
+      num1 = Math.floor(Math.random() * 12 + 1);
+      num2 = Math.floor(Math.random() * 12 + 1);
+      num3 = Math.floor(Math.random() * 12 + 1);
+      num4 = Math.floor(Math.random() * 12 + 1);
+      userTotal = 0;
+      $("#yourScore").text(userTotal);
+      } 
+
+      function youWon(){
+alert("You won mate congrats my man!");
+  wins++; 
+  $('#numberWins').text(wins);
+  reset();
+} 
+
+function youLost() {
+  alert("you lost mate better luck net time!");
+  losses++;
+  $("#numberLosses").text(losses);
+  reset();
+}
+
+$("#one").on ("click", function(){
+    userTotal = userTotal + num1;
+    $("#yourScore").text(userTotal); 
+         
+        if (userTotal == randomNumber){
+          youWon();
+        }
+        else if ( userTotal > randomNumber){
+          youLost();
+        }   
+  })  
+  $("#two").on ("click", function(){
+    userTotal = userTotal + num2;
+    $("#yourScore").text(userTotal); 
+         
+        if (userTotal == randomNumber){
+          youWon();
+        }
+        else if ( userTotal > randomNumber){
+          youLost();
+        }   
+  })  
+  
+  $("#three").on ("click", function(){
+    userTotal = userTotal + num1;
+    $("#yourScore").text(userTotal); 
+         
+        if (userTotal == randomNumber){
+          youWon();
+        }
+        else if ( userTotal > randomNumber){
+          youLost();
+        }   
+  })  
+  
+  $("#four").on ("click", function(){
+    userTotal = userTotal + num1;
+    $("#yourScore").text(userTotal); 
+         
+        if (userTotal == randomNumber){
+          youWon();
+        }
+        else if ( userTotal > randomNumber){
+          youLost();
+        }   
+  })  
+  
+  
+
+
+
+
+
+
+    });
+    
+    
+    
+    
+    </script>
+</body>
+</html>

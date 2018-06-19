@@ -1,0 +1,11 @@
+h1 {
+    background-color: blue;
+    color: white;
+    text-align: center;
+    height: 60px;
+    margin-top: 0;
+}
+body {
+    text-align:center;
+    font-family: 'Shrikhand', cursive;
+}
